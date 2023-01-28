@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="root">
+        <h1>hello {{name}}</h1>
+        <button v-on:click="showInfo1">click_1</button>
+        <button v-on:click="showInfo2($event, 11)">click_2</button>
+    </div>
+    
+    <script>
+        const v = new Vue({
+            //el用于指定当前vue实例为哪个容器服务
+            //这里使用css选择器，还可以使用document选择dom节点
+            el:'#root',
+            data(){
+                return{
+                    name: '123',
+                    url:'http://baidu.com',
+                    value:'000'
+                }
+            },
+            methods: {
+                showInfo1(event){
+                    console.log(event);
+                },
+                showInfo2(event, a){
+                    console.log(event, a);
+                }
+            }
+        });
+
+
+    </script>
+    
+</body>
+</html>

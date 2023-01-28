@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="root">
+        <form @submit.prevent="goGo">
+            <!-- 通过label指定其为对应id的服务 -->
+            <label for="useName">账号:</label>
+            <input type="text" id="useName" v-model="useName"> <br/> <br/>
+            密码:<input type="password" v-model="passWord"> <br/> <br/>
+            性别:
+            男<input type="radio" name="sex" value="male" v-model="sex">
+            女<input type="radio" name="sex" value="female" v-model="sex"> <br/> <br/>
+            爱好:
+            学习<input type="checkbox" v-model="hobby" value="study">
+            吃饭<input type="checkbox" v-model="hobby" value="eat">
+            打游戏<input type="checkbox" v-model="hobby" value="playGame"> <br/> <br/>
+            所属校区:
+            <select v-model="city">
+                <option value="">请选择校区</option>
+                <option value="beijing">北京</option>
+                <option value="shanghai">上海</option>
+                <option value="xian">西安</option>
+            </select>
+            <br/> <br/>
+            其他信息:
+            <textarea v-model="other"></textarea>
+            <br/> <br/>
+            <input type="checkbox" v-model="agree"> 阅读并接受<a href="http://www.baidu.com">《用户协议》</a>
+            <br><br>
+            <button>提交</button>
+        </form>
+    </div>
+    
+    <script>
+        Vue.config.productionTip = false;
+
+        const v = new Vue({
+            el:'#root',
+            data: {
+                useName:'',
+                passWord:'',
+                sex:'male',
+                hobby:[],
+                city:'',
+                other:'',
+                agree:''
+            },
+            methods: {
+                goGo(){
+                    console.log(JSON.stringify(this._data));
+                }
+            }
+        });
+
+
+    </script>
+    
+</body>
+</html>

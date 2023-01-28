@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="root">
+        <h1>hello {{name}}</h1>
+        <a v-bind:href="url">111</a>
+        <input type="text" v-model="value">
+    </div>
+    
+    <script>
+        //阻止出现vue生产提示
+        Vue.config.productionTip = false;
+        
+        //创建vue实例，只传一个参数，配置对象
+        const v = new Vue({
+            //el用于指定当前vue实例为哪个容器服务
+            //这里使用css选择器，还可以使用document选择dom节点
+            el:'#root',
+
+            // data:{
+            //     name: '123',
+            //     url:'http://baidu.com',
+            //     value:'000'
+            // }
+            data(){
+                return{
+                    name: '123',
+                    url:'http://baidu.com',
+                    value:'000'
+                }
+            },
+            methods: {
+                
+            },
+        });
+        // setTimeout( () => {
+        //     v.$mount('#root')
+        // },2000)
+
+
+    </script>
+    
+</body>
+</html>
